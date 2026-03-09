@@ -278,8 +278,12 @@ Goods are the strategic resource. They are **physical objects** that exist on th
 - Players can set "preferred routes" that trucks follow automatically
 - Route warnings: the UI highlights if a truck's auto-route passes through enemy-controlled territory
 - Goods production doesn't stop if transport is delayed — it just piles up at the source building (up to storage cap)
+- **Goods Insurance:** When a truck is destroyed, 40% of its cargo drops on the ground as a recoverable pickup (persists 45 seconds). Either player can grab it. Caps worst-case loss at 60%.
+- **Destruction Alert:** Audio ping + minimap flash when any transport unit is destroyed. Distinct from combat alerts.
+- **Auto-Replacement:** When a truck is destroyed, the producing building auto-queues a replacement if the player has Cash. Toggleable.
+- **Banking Buffer:** The Compound stores up to 150 Goods; Warehouses store 100 each. A well-managed player always has a buffer against supply disruption.
 
-**Design intent:** Goods logistics creates the game's signature tension. Sending an unescorted truck is a gamble. Escorting every truck is expensive. Finding the right balance — and exploiting your opponent's logistics — is a core skill.
+**Design intent:** Losing a truck should feel like losing a battle in AoE2 — a hit, a setback, a reason to adapt and fight back — **never** a reason to quit. If supply lines are completely cut but the player has Goods banked, they should still be okay. Sustained raiding over many minutes should delay tier advancement by 2-4 minutes (significant, worth doing) but never instantly end the game. The city always provides 2+ viable routes between any two points, and Runners can carry small loads through alleys as a slow fallback. Logistics raiding is a war of attrition, not an assassination.
 
 ### Influence Economy
 

@@ -6,6 +6,49 @@
 
 ---
 
+## Design Directive: Logistics Loss Philosophy
+
+**Ruling:** Losing a truck should feel like losing a battle — a hit, a setback, a reason to adapt — not a reason to quit. If a player's supply lines are completely cut but they have enough Goods banked, they should still be okay. This mirrors Age of Empires II, where losing your trade route or gold miners to a raid stings but doesn't end the game if you have resources stockpiled.
+
+**Concrete design rules derived from this directive:**
+
+### Rule 1: No single truck loss should exceed 6% of a tier advancement cost
+- Delivery Truck (20 Goods) vs T2→T3 (350 Goods) = 5.7%. **Passes.**
+- Delivery Truck (20 Goods) vs T3→T4 (800 Goods) = 2.5%. **Passes.**
+- With Goods Insurance (40% drop recovery), effective loss = 12 Goods = 3.4% of T3 cost. **Comfortable.**
+
+### Rule 2: Banking must provide a meaningful buffer
+- **Compound stores up to 150 Goods** by default (enough for ~7 truck loads of buffer)
+- **Warehouse stores up to 100 Goods** (expanded to 200 at T4 via Federal Warehouse)
+- **Design target:** A player at T2 with a functioning Distillery (10 Goods/min) should be able to bank 100+ Goods at their Compound before needing to spend them. If their supply line is then completely cut, they have **10 minutes of banked Goods** before running dry — long enough to rebuild or fight for a new route.
+
+### Rule 3: Truck rebuilds must be fast and cheap
+- Delivery Truck rebuild: **$80, 12-second build time** (current spec). Losing one and replacing it costs less than a Thug squad.
+- Armored Truck rebuild: **$200, 20-second build time**. More painful but still manageable.
+- A player should be able to lose 2 trucks in a raid and have replacements rolling within 30 seconds.
+
+### Rule 4: Complete supply line cuts are temporary, not permanent
+- Supply lines can be cut by destroying trucks and controlling route chokepoints. But:
+  - The city always provides **2+ viable routes** between any production building and any processing hub (map generation constraint)
+  - Runners can carry 5 Goods through alleys that vehicles can't use — a slow fallback that's always available
+  - The Compound and Warehouses act as Goods banks that smooth out disruption
+- A player whose lines are completely cut should feel pressure to act (reclaim a route, escort the next truck, counterattack) — not helpless
+
+### Rule 5: Cumulative raid damage must be significant over time
+- While single losses are minor, a sustained logistics campaign (destroying 5-6 trucks over 5 minutes) should materially delay tier advancement by 2-4 minutes
+- This creates the AoE2 dynamic: raiding is worth doing, but it's a war of attrition, not an instant kill
+- The raider pays an opportunity cost (Saboteur squads tied up on ambush duty instead of frontline combat)
+
+### Emotional benchmark (from AoE2 analog):
+| AoE2 Equivalent | The Commission Equivalent | Feel |
+|-----------------|--------------------------|------|
+| Losing 3 trade carts to a knight raid | Losing a Delivery Truck to Saboteurs | "Damn, need to escort better" |
+| Gold miners killed, mine still standing | Distillery untouched, trucks destroyed | "Route's hot, switch paths or fight" |
+| All gold mines exhausted | All supply lines cut, Goods banked | "I have time, need to break through" |
+| TC destroyed, villagers scattered | Compound destroyed, trucks orphaned | "I'm in trouble but not dead yet" |
+
+---
+
 ## Critical Fixes (Must-Do Before Prototype)
 
 ### Fix 1: Solomon Faction Rebalance
